@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const db = require('/Users/ryanbrennan/Desktop/repls/roman/database.js');
+const db = require('./database.js');
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
@@ -15,8 +15,9 @@ app.post('/test', (req, res) => {
       body: "Hey, this is a fake review for a fake book on a fake website!"
     }
   ]
-  db.save(arr, (results) => {
-    console.log(results)
+  db.save(arr, () => {
+    //
+    res.json('saved to the DB')
   })
 })
 
